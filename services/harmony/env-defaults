@@ -225,7 +225,7 @@ LOG_STDOUT=false
 # a variable name of GIOVANNI_ADAPTER_IMAGE you would specify giovanni-adapter (converting to lowercase
 # and dash case and dropping _IMAGE. Make sure if the image for the service is not publicly available
 # that you have built the docker image locally, otherwise the service will fail to start.
-LOCALLY_DEPLOYED_SERVICES=harmony-service-example
+LOCALLY_DEPLOYED_SERVICES=harmony-service-example,opera-rtc-s1-browse
 
 # Local development: Use the following to set the Kubernetes context used by start scripts
 # minikube users should set it to "minikube"
@@ -511,3 +511,9 @@ NET2COG_LIMITS_CPU=128m
 NET2COG_LIMITS_MEMORY=512Mi
 NET2COG_INVOCATION_ARGS='./docker-entrypoint.sh'
 NET2COG_QUEUE_URLS='["ghcr.io/podaac/net2cog:SIT,http://sqs.us-west-2.localhost.localstack.cloud:4566/000000000000/net2cog.fifo"]'
+
+OPERA_RTC_S1_BROWSE_IMAGE=ghcr.io/asfhyp3/opera-rtc-s1-browse:test
+OPERA_RTC_S1_BROWSE_REQUESTS_MEMORY=128Mi
+OPERA_RTC_S1_BROWSE_LIMITS_MEMORY=512Mi
+OPERA_RTC_S1_BROWSE_INVOCATION_ARGS='/usr/local/bin/_entrypoint.sh python -m opera-rtc-s1-browse'
+OPERA_RTC_S1_BROWSE_SERVICE_QUEUE_URLS='["ghcr.io/ASFHyP3/opera-rtc-s1-browse:test,http://sqs.us-west-2.localhost.localstack.cloud:4566/000000000000/opera-rtc-s1-browse.fifo"]'

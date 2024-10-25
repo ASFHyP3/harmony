@@ -23,6 +23,34 @@ x-turbo-config: &default-turbo-config
 
 https://cmr.earthdata.nasa.gov:
 
+  - name: asf/opera-rtc-s1-browse
+    description: Service that generates GIBS-compliant browse imagery for the OPERA_L2_RTC-S1 collection
+    data_operation_version: '0.18.0'
+    type:
+      <<: *default-turbo-config
+      params:
+        <<: *default-turbo-params
+        env:
+          <<: *default-turbo-env
+          STAGING_PATH: public/asf/opera-rtc-s1-browse
+    umm_s: 'TODO'
+    collections:
+      - id: C2777436413-ASF
+        granule_limit: 1000
+    maximum_sync_granules: 0
+    capabilities:
+      concatenation: false
+      subsetting:
+        bbox: false
+        variable: false
+        temporal: false
+      output_formats:
+        - image/tiff
+      reprojection: false
+    steps:
+      - image: !Env ${QUERY_CMR_IMAGE}
+      - image: !Env ${OPERA_RTC_S1_BROWSE_IMAGE}
+
   - name: harmony/download
     description: Service that performs no processing, it only returns download links for all of the matched granules from the CMR.
     data_operation_version: '0.20.0'
