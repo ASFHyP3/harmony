@@ -513,7 +513,7 @@ NET2COG_INVOCATION_ARGS='./docker-entrypoint.sh'
 NET2COG_QUEUE_URLS='["ghcr.io/podaac/net2cog:SIT,http://sqs.us-west-2.localhost.localstack.cloud:4566/000000000000/net2cog.fifo"]'
 
 OPERA_RTC_S1_BROWSE_IMAGE=ghcr.io/asfhyp3/opera-rtc-s1-browse:test
-OPERA_RTC_S1_BROWSE_REQUESTS_MEMORY=128Mi
-OPERA_RTC_S1_BROWSE_LIMITS_MEMORY=512Mi
+OPERA_RTC_S1_BROWSE_REQUESTS_MEMORY=384Mi
+OPERA_RTC_S1_BROWSE_LIMITS_MEMORY=384Mi
 OPERA_RTC_S1_BROWSE_INVOCATION_ARGS='/usr/local/bin/_entrypoint.sh python -m opera_rtc_s1_browse.harmony_service'
 OPERA_RTC_S1_BROWSE_SERVICE_QUEUE_URLS='["ghcr.io/asfhyp3/opera-rtc-s1-browse:test,http://sqs.us-west-2.localhost.localstack.cloud:4566/000000000000/opera-rtc-s1-browse.fifo"]'
