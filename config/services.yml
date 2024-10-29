@@ -50,6 +50,7 @@ https://cmr.earthdata.nasa.gov:
     steps:
       - image: !Env ${QUERY_CMR_IMAGE}
       - image: !Env ${OPERA_RTC_S1_BROWSE_IMAGE}
+      - image: !Env ${HYBIG_IMAGE}
 
   - name: harmony/download
     description: Service that performs no processing, it only returns download links for all of the matched granules from the CMR.
