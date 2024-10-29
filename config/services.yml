@@ -45,7 +45,7 @@ https://cmr.earthdata.nasa.gov:
         variable: false
         temporal: false
       output_formats:
-        - image/tiff
+        - image/png
       reprojection: true
     steps:
       - image: !Env ${QUERY_CMR_IMAGE}
