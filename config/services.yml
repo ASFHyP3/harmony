@@ -23,6 +23,33 @@ x-turbo-config: &default-turbo-config
 
 https://cmr.earthdata.nasa.gov:
 
+  - name: asf/burst2safe
+    description: Run burst2safe in Harmony
+    data_operation_version: '0.18.0'
+    type:
+      <<: *default-turbo-config
+      params:
+        <<: *default-turbo-params
+        env:
+          <<: *default-turbo-env
+          STAGING_PATH: public/asf/burst2safe
+    umm_s: 'TODO'
+    collections:
+      - id: C2709161906-ASF
+        granule_limit: 1000
+    maximum_sync_granules: 0
+    capabilities:
+      concatenation: false
+      subsetting:
+        bbox: false
+        variable: false
+        temporal: false
+      output_formats:
+        - application/zip
+      reprojection: true
+    steps:
+      - image: !Env ${BURST2SAFE_IMAGE}
+
   - name: asf/opera-rtc-s1-browse
     description: Service that generates GIBS-compliant browse imagery for the OPERA_L2_RTC-S1 collection
     data_operation_version: '0.18.0'
